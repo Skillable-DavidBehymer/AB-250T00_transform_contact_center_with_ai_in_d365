@@ -21,11 +21,11 @@ You must have completed **Exercise 04**. The **Contoso Chat Workstream**, **Cont
 
 Skill-based routing requires a rating model that defines the scale used to measure agent proficiency. You will create a **Language** rating model for Contoso Coffee's multilingual support team.
 
-1. In **Copilot Service admin center**, in the left navigation under **Customer support**, select **Routing.**
+1. In **Copilot Service admin center**, in the left navigation under **Customer support**, select **Routing**.
 
 1. Next to **Skill-based routing**, select **Manage.**
 
-1. In the **Rating Models** subgrid, select **+New Rating Model.**
+1. In the **Rating Models** subgrid, select **+New Rating Model**.
 
 1. Enter the following:
    - **Name**: `Language Rating Model`
@@ -45,6 +45,9 @@ Skill-based routing requires a rating model that defines the scale used to measu
    | `Business` | `8` |
    | `Fluent` | `10` |
 
+  > [!NOTE]
+  > If the **Discard suggestions?** dialog appears at any point during this process, select **Continue anyway** to continue without applying AI-generated suggestions.
+
 1. Select the **Value** column header in the **Rating Values** subgrid. Select **Smaller to larger** to sort the values.
 
 1. Confirm that all four rating values — **Basic**, **Conversational**, **Business**, and **Fluent** — appear in the **Rating Values** subgrid, in that order.
@@ -59,19 +62,22 @@ Skill-based routing is enabled at the workstream level by setting the default sk
 
 1. Select **See more** in the **Work distribution** settings.
 
-    > **Note**: This panel exposes several additional workstream settings worth exploring:
-    > - **Auto-close after inactivity** — automatically closes a conversation after a defined period of agent inactivity, preventing stale conversations from blocking capacity.
-    > - **Work distribution mode** — locked to **Push** for this workstream, meaning the system assigns conversations automatically rather than requiring agents to pick them up.
-    > - **Capacity** — sets the capacity unit cost of each conversation assigned through this workstream; used in conjunction with capacity profiles.
-    > - **Block capacity for wrap up** — when enabled, the agent's capacity remains occupied during the post-conversation wrap-up period so they aren't assigned a new conversation immediately.
-    > - **Allowed presences** — defines which agent presence statuses (for example, Available, Busy) are eligible to receive work from this workstream.
-    > - **Keep the same representative for the entire conversation** — ensures that a returning customer is reconnected to the same agent if they rejoin within the session window.
+   > [!NOTE]
+   > This panel exposes several additional workstream settings worth exploring:
+   >
+   > - **Auto-close after inactivity** — automatically closes a conversation after a defined period of agent inactivity, preventing stale conversations from blocking capacity.
+   > - **Work distribution mode** — locked to **Push** for this workstream, meaning the system assigns conversations automatically rather than requiring agents to pick them up.
+   > - **Capacity** — sets the capacity unit cost of each conversation assigned through this workstream; used in conjunction with capacity profiles.
+   > - **Block capacity for wrap up** — when enabled, the agent's capacity remains occupied during the post-conversation wrap-up period so they aren't assigned a new conversation immediately.
+   > - **Allowed presences** — defines which agent presence statuses (for example, Available, Busy) are eligible to receive work from this workstream.
+   > - **Keep the same representative for the entire conversation** — ensures that a returning customer is reconnected to the same agent if they rejoin within the session window.
 
 1. For **Block capacity for wrap up**, select **Custom time**. Set the custom time to `3` minutes `0` seconds.
 
 1. Under **Default skill matching algorithm**, select **Exact match**.
 
-    > **Note**: **Exact match** requires the assigned agent to have all required skills at or above the minimum proficiency threshold. If no agent meets the criteria, the conversation remains unassigned in the queue. Use **Closest match** if you want the system to assign conversations even when no agent has an exact skill match.
+   > [!NOTE]
+   > **Exact match** requires the assigned agent to have all required skills at or above the minimum proficiency threshold. If no agent meets the criteria, the conversation remains unassigned in the queue. Use **Closest match** if you want the system to assign conversations even when no agent has an exact skill match.
 
 1. Select **Save and close.**
 
@@ -87,18 +93,20 @@ Skill attachment rules are a type of work classification ruleset. They attach sk
 
 1. Select **Create new**.
 
-1. In the **Create work classification ruleset** dialog:
+1. In the **Create work classification ruleset** dialog configure the following:
    - **Rule type**: `Logical rules`
    - **Name**: `Contoso Skill Attachment Rules`
    - **Description**: `Attaches the Spanish skill to conversations from Spanish-speaking customers`
 
-1. Select **Save and close.**
+1. Select **Create**.
 
-    > **Note**: There are two rule type options:
-    > - **Logical rules** — you manually define conditions and outputs using the decision list builder. Best for straightforward, deterministic routing logic where the criteria are well-known and stable.
-    > - **Machine learning model** — uses an AI model trained on historical conversation data to predict and attach attributes automatically. Best for complex or high-volume environments, but requires model training and setup.
+   > [!NOTE]
+   > There are two rule type options:
+   >
+   > - **Logical rules** — you manually define conditions and outputs using the decision list builder. Best for straightforward, deterministic routing logic where the criteria are well-known and stable.
+   > - **Machine learning model** — uses an AI model trained on historical conversation data to predict and attach attributes automatically. Best for complex or high-volume environments, but requires model training and setup.
 
-1. On the **Decision list** page, select **+ Create rule**.
+1. On the **Decision list** page, select **+Create rule**.
 
 1. In the **Create work classification rule** dialog, enter:
    - **Rule Name**: `Attach Spanish skill - Mexico`
@@ -110,7 +118,7 @@ Skill attachment rules are a type of work classification ruleset. They attach sk
 
 1. Set the **Output** as **Skills**.
 
-1. Select the **Set to** lookup. In the dialog that appears, select:
+1. Select the **Set to** lookup. In the **Select skills** pane that appears, select:
    - **Skill**: `Spanish`
    - **Proficiency**: `Conversational`
 
@@ -126,13 +134,15 @@ Skill attachment rules are a type of work classification ruleset. They attach sk
    | `Attach Spanish skill - Spain` | `Spanish - Spain` |
    | `Attach Spanish skill - United States` | `Spanish - United States` |
 
-    > **Note**: Because the condition toggle is fixed to **And** and can't be changed to **Or**, creating one rule per language variant is the correct approach. Each rule is evaluated independently in the decision list, so any matching variant will attach the Spanish skill.
+   > [!NOTE]
+   > Because the condition toggle is fixed to **And** and can't be changed to **Or**, creating one rule per language variant is the correct approach. Each rule is evaluated independently in the decision list, so any matching variant will attach the Spanish skill.
 
 <!-- REVIEW (Derik): Is creating one rule per Spanish language variant the correct way to achieve "Any" (OR) logic in a work classification ruleset? Or is there a way to unlock the "Or" toggle, or another approach (e.g., using a group condition) that would let us handle all four variants in a single rule? (Would it be easier to just choose a different language that doesn't have 4 variants, or just have them choose one?) -->
 
-1. Confirm that all four rules appear in the decision list.
+15. Confirm that all four rules appear in the decision list.
 
-    > **Note**: These rules attach the **Spanish** skill at **Conversational** proficiency to any incoming conversation where the customer language is Spanish. The routing engine then uses the exact match algorithm (set in Task 2) to find an agent with at least Conversational proficiency in Spanish. 
+   > [!NOTE]
+   > These rules attach the **Spanish** skill at **Conversational** proficiency to any incoming conversation where the customer language is Spanish. The routing engine then uses the exact match algorithm (set in Task 2) to find an agent with at least Conversational proficiency in Spanish.
 
 ## Task 4 - Create a work classification ruleset
 
@@ -148,7 +158,7 @@ Contoso Coffee wants conversations from **Trey Research** (a key commercial acco
 
 1. On the **Work classification** page, select **Create new**.
 
-1. In the **Create work classification ruleset** dialog:
+1. In the **Create work classification ruleset** dialog configure the following:
    - **Rule type**: `Logical rules`
    - **Start new or use a template:** New ruleset
    - **Name**: `Contoso Classification Rules`
@@ -156,11 +166,11 @@ Contoso Coffee wants conversations from **Trey Research** (a key commercial acco
 
 1. Select **Create**.
 
-1. In the **Decision list**, select **+ Create Rule**.
+1. In the **Decision list**, select **+Create Rule**.
 
 1. Configure the rule:
    - **Rule Name**: `Set Gold service level`
-   - Select **+ Add**, then **Add related entity**, and add the **Issue (Case)** entity
+   - Select **+Add**, then **Add related entity**, and add the **Issue (Case)** entity
    - **Condition**: **Customer** **Equals** `Trey Research`
 
 1. In the **Output** section, scroll to **Related entities** in the dropdown and select **Issue (Case)**. (Do not select **Issue**; it will appear before **Issue (Case)** in the dropdown, but keep scrolling. We want to select the field that exists on the related entity.)
@@ -177,7 +187,7 @@ Contoso Coffee wants conversations from **Trey Research** (a key commercial acco
 
 Route-to-queue rules use the output values set by the work classification ruleset to direct conversations to the correct queue. You will create a rule that routes Gold service level conversations to the Contoso Support Queue.
 
-1. On the **Contoso Chat Workstream** page, in the **Routing rules** section, select the **Default routing** Ruleset.
+1. On the **Contoso Chat Workstream** page, in the **Routing rules** section, select the **Default routing** ruleset.
 
 1. In the **Decision list**, select **+ Create Rule**.
 
@@ -185,7 +195,7 @@ Route-to-queue rules use the output values set by the work classification rulese
    - **Rule Name**: `Route Gold to Contoso Support Queue`
    - Select **Add related entity** and select **Issue (Case)**
    - **Condition**: **Service Level** **Equals** `Gold`
-   - **Route to**: **Contoso Support Queue**
+   - **Queue**: `Contoso Support Queue`
 
 1. Select **Create**.
 
@@ -201,13 +211,15 @@ With both rulesets attached to the workstream, review the complete routing pipel
    - **Work classification**: Contains **Contoso Skill Attachment Rules** and **Contoso Classification Rules**
    - **Route to queues**: Specifies **Default messaging queue** as the fallback queue and specifies the Ruleset as **Default routing**
 
-1. Select **Save** if any changes are pending.
+1. Confirm that all sections show the expected values. Changes made in each pane were saved when you selected **Save and close** in earlier tasks.
 
-    > **Note**: When a chat conversation arrives through this workstream, the routing engine will: (1) apply skill requirements to match the conversation to a qualified agent, (2) run the classification rules to check for Trey Research and set the service level, and (3)) run the route-to-queue rules to direct the conversation to the correct queue. You will test this end-to-end in Exercise 08.
+   > [!NOTE]
+   > When a chat conversation arrives through this workstream, the routing engine will: (1) apply skill requirements to match the conversation to a qualified agent, (2) run the classification rules to check for Trey Research and set the service level, and (3) run the route-to-queue rules to direct the conversation to the correct queue. You will test this end-to-end in Exercise 08.
 
 ## Verification
 
 This exercise is complete when:
+
 - **Skill-based routing** is enabled and the **Language Rating Model** exists with four rating values
 - **Contoso Chat Workstream** has a Spanish skill requirement with minimum proficiency of 4
 - **Contoso Classification Rules** workstream ruleset exists with the **Set Gold service level** rule
