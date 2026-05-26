@@ -1,10 +1,10 @@
 ﻿---
 lab:
-  title: 'Exercise 09 - Configure and deploy a voice agent'
-  description: 'Create a Copilot Studio voice agent with generative AI orchestration, configure user consent and DTMF input, enable call recording with consent, and deploy the agent to the Contoso Voice Workstream.'
-  duration: '40 minutes'
-  level: 300
-  islab: true
+    title: 'Exercise 09 - Configure and deploy a voice agent'
+    description: 'Create a Copilot Studio voice agent with generative AI orchestration, configure user consent and DTMF input, enable call recording with consent, and deploy the agent to the Contoso Voice Workstream.'
+    duration: '40 minutes'
+    level: 300
+    islab: true
 ---
 
 # Exercise 09 - Configure and deploy a voice agent
