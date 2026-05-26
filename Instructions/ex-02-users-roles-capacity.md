@@ -33,7 +33,8 @@ Role persona mappings control which security roles are associated with the Agent
 
 1. Select the **Admin** persona and review its assigned roles. Note that the Admin persona has access to the full admin center.
 
-    > **Note**: Contoso Coffee uses the default persona-to-role assignments for this course. You are reviewing them here to understand the permission model before configuring users. Changes to role mappings affect all users in the environment.
+   > [!NOTE]
+   > Contoso Coffee uses the default persona-to-role assignments for this course. You're reviewing them here to understand the permission model before configuring users. Changes to role mappings affect all users in the environment.
 
 1. Select **Save and Close** without making changes.
 
@@ -53,7 +54,8 @@ A capacity profile defines how many work items can be assigned to a customer sup
    - **Reset frequency**: `Immediate`
    - **Assignment blocking**: Set to **Yes**
 
-    > **Note**: Setting **Assignment blocking** to **Yes** means that when a customer support representative reaches their work item limit, the system will not automatically assign them additional conversations. This prevents representatives from being overloaded.
+   > [!NOTE]
+   > Setting **Assignment blocking** to **Yes** means that when a customer support representative reaches their work item limit, the system will not automatically assign them additional conversations. This prevents representatives from being overloaded.
 
 1. Select **Save and Close**.
 
@@ -65,13 +67,14 @@ A capacity profile defines how many work items can be assigned to a customer sup
 
 1. Select the **Users** tab.
 
-1. Select **Add user**.
+1. Select **+ Add user**.
 
 1. Search for and select your administrator account, then select **Add user**.
 
 1. Select **Save and Close**.
 
-    > **Note**: In a production deployment, you would assign the capacity profile to all customer support representatives who will handle chat conversations. For this course, assigning it to your admin account is sufficient to validate routing behavior.
+   > [!NOTE]
+   > In a production deployment, you would assign the capacity profile to all customer support representatives who will handle chat conversations. For this course, assigning it to your admin account is sufficient to validate routing behavior.
 
 ## Task 4 - Create a skill for routing
 
@@ -90,6 +93,9 @@ Skills allow the routing engine to match incoming conversations to customer supp
 
 1. Select **Save & Close**.
 
+   > [!NOTE]
+   > If the Discard suggestions? dialog appears, select **Continue anyway**.
+
 1. Confirm that **Spanish** appears in the skills list.
 
 ## Task 5 - Assign the skill to your user
@@ -100,17 +106,19 @@ Skills allow the routing engine to match incoming conversations to customer supp
 
 1. Select the checkbox next to your administrator account.
 
-1. Select **Update user attributes**, then select **Update skills**.
+1. Select the **Update user attributes** drop-down, then select **Update skills**.
 
 1. In the **Skills** box, select **Spanish**. Under **Default Rating Model**, set the **Proficiency** to `Proficient`.
 
-1. Select **Add to all**, then select **Save.**
+1. Select **Add to all**, then select **Save**.
 
-    > **Note**: The Default Rating Model offers three levels: Familiar, Proficient, and Good. Selecting **Proficient** indicates a solid working knowledge of Spanish. You will use this skill in the routing configuration in Exercise 05.
+   > [!NOTE]
+   > The Default Rating Model offers three levels: Familiar, Proficient, and Good. Selecting **Proficient** indicates a solid working knowledge of Spanish. You will use this skill in the routing configuration in Exercise 05.
 
 ## Verification
 
 This exercise is complete when:
+
 - The **Contoso Support Representatives** capacity profile exists with a work item limit of 3 and immediate reset
 - Your administrator account is assigned to the **Contoso Support Representatives** capacity profile
 - The **Spanish** skill exists and is assigned to your administrator account with a proficiency rating
