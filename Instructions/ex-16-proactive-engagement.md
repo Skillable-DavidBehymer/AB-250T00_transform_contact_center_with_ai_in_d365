@@ -21,7 +21,8 @@ This exercise should take approximately **35** minutes to complete.
 
 You must have completed **Exercise 01** (trial environment provisioned). Proactive engagement requires the **Dynamics 365 Contact Center** trial, which includes outbound messaging capabilities by default.
 
-> **Note**: If you completed the voice channel provisioning in Exercise 07, you can optionally configure a voice outbound campaign instead of or in addition to the SMS campaign in this exercise. The steps for voice use the same campaign structure but require an outbound calling number.
+> [!NOTE]
+> If you completed the voice channel provisioning in Exercise 07, you can optionally configure a voice outbound campaign instead of or in addition to the SMS campaign in this exercise. The steps for voice use the same campaign structure but require an outbound calling number.
 
 ## Task 1 - Enable proactive engagement
 
@@ -41,11 +42,12 @@ An outbound workstream defines the channel, dialing mode, and AI configuration f
 
 1. Select **+ New workstream**.
 
-1. Enter:
+1. In the **Create a workstream** dialog, select **Outbound**, then select **Next**.
+
+1. On the **Outbound Workstream** page, enter:
    - **Name**: `Contoso Outbound SMS`
    - **Type**: `Messaging`
    - **Channel**: `SMS`
-   - **Direction**: `Outbound`
 
 1. Select **Next**.
 
@@ -73,7 +75,8 @@ An outbound workstream defines the channel, dialing mode, and AI configuration f
    - Download and use the sample CSV template provided (or create a file with columns: `FirstName`, `LastName`, `PhoneNumber`, `ContractEndDate`)
    - Create a sample CSV with 3–5 rows of test data and upload it
 
-    > **Note**: In a production environment, the audience list would be exported from Dynamics 365 Customer Insights or a CRM query. For this exercise, a manually created CSV is sufficient.
+   > [!NOTE]
+   > In a production environment, the audience list would be exported from Dynamics 365 Customer Insights or a CRM query. For this exercise, a manually created CSV is sufficient.
 
 1. On the **Routing** step:
    - **Queue**: Select `Contoso Support Queue`
@@ -108,7 +111,8 @@ An outbound workstream defines the channel, dialing mode, and AI configuration f
 
 1. Set the campaign status to **Active** to begin processing the audience list.
 
-    > **Note**: In a trial environment with test data, no actual SMS messages will be sent. The campaign will be queued for processing and you can observe the status update in the dashboard.
+   > [!NOTE]
+   > In a trial environment with test data, no actual SMS messages will be sent. The campaign will be queued for processing and you can observe the status update in the dashboard.
 
 ## Verification
 
