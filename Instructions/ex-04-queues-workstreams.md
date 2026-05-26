@@ -21,6 +21,8 @@ You must have completed **Exercise 02**. The **Contoso Support Representatives**
 
 A workstream is the entry point for a channel. It defines how incoming conversations are received, distributed to agents, and linked to a queue.
 
+1. Open **Copilot Service admin center** from the **Apps** selector.
+
 1. In **Copilot Service admin center**, in the left navigation under **Customer support**, select **Workstreams**.
 
 1. Select **+ New workstream**.
@@ -31,13 +33,14 @@ A workstream is the entry point for a channel. It defines how incoming conversat
    - **Name**: `Contoso Chat Workstream`
    - **Type**: `Messaging`
    - **Channel**: `Chat`
-   - Do not check the **Persistent chat** checkbox. 
+   - Do not check the **Persistent chat** checkbox.
    - **Work distribution mode**: `Push`
    - **Fallback queue**: Select **Choose existing**, then select **Default messaging queue (All users)**
 
 1. Select **Create**.
 
-    > **Note**: **Push** distribution means the system automatically assigns conversations to available agents based on capacity. **Persistent chat** allows customers to continue a previous conversation if they return within the session timeout window.
+   > [!NOTE]
+   > **Push** distribution means the system automatically assigns conversations to available agents based on capacity. **Persistent chat** allows customers to continue a previous conversation if they return within the session timeout window.
 
 1. Confirm the workstream is created and displayed with the option to configure the chat channel. You will configure the chat channel widget in Exercise 06.
 
@@ -58,19 +61,20 @@ Advanced queues work with unified routing to apply prioritization and assignment
 
 1. Select **Create**.
 
-    > **Note**: **Queue priority** determines the order in which queues are considered when the routing engine assigns work items. Lower numbers indicate higher priority — a queue with priority `1` is evaluated before queues with priority `2` or higher.
+   > [!NOTE]
+   > **Queue priority** determines the order in which queues are considered when the routing engine assigns work items. Lower numbers indicate higher priority — a queue with priority `1` is evaluated before queues with priority `2` or higher.
 
 1. On the **Contoso Support Queue** page, select **Add users**. Search for and add your administrator account.
 
-1. In the **Operating hours** section, select **+Set operating hours**. 
+1. In the **Operating hours** section, select **+Set operating hours**.
 
-1. In the **Set operation hours** pane, select the **Name** dropdown and select **+Create new.**
+1. In the **Set operation hours** pane, select the **Name** drop-down and select **+Create new.**
 
-1. Enter `Contoso Business Hours` for **Name** and select **Save.**
+1. Enter `Contoso Business Hours` for **Name** and select **Save**.
 
 1. Select the **Working Hours** tab.
 
-1. Select **+New** and select **Working hours** from the dropdown.
+1. Select **+New** and select **Working hours** from the drop-down.
 
 1. Create a schedule named `Contoso Business Hours` with the following settings:
    - Keep **today's date** as the date selected
@@ -78,6 +82,8 @@ Advanced queues work with unified routing to apply prioritization and assignment
    - **Start time:** 8:00 AM
    - **End time:** 5:00 PM
    - **Time zone**: Select your local time zone
+
+1. Select **Save**.
 
 1. The calendar will update.
 
@@ -87,16 +93,17 @@ Advanced queues work with unified routing to apply prioritization and assignment
 
 Overflow handling ensures that conversations are redirected when the queue cannot handle them — for example, when wait times are too long or the queue is outside operating hours.
 
-1. On the **Contoso Support Queue** page, scroll to the **Overflow handling** section. Under **When work items are queued**, select **Add condition-action pair**.
+1. On the **Contoso Support Queue** page, scroll to the **Overflow handling** section and select **Add condition-action pair**. Under **When work items are queued**, select **Add condition-action pair**.
 
 1. Configure the following overflow condition:
-   - **Condition**: **Waiting time in queue exceeds** `5` minutes
-   - **Action**: **Transfer to another queue**
-   - **Select a queue**: **Default messaging queue (1 user)**
+   - **Condition**: Waiting time in queue exceeds `5` minutes
+   - **Action**: Transfer to another queue
+   - **Select a queue**: Default messaging queue (1 user)**
 
 1. Select **Save and close**.
 
-    > **Note**: This overflow condition ensures that customers are not left waiting indefinitely if all Contoso agents are at capacity. In a production deployment, you might route to a fallback team or trigger a callback.
+   > [!NOTE]
+   > This overflow condition ensures that customers are not left waiting indefinitely if all Contoso agents are at capacity. In a production deployment, you might route to a fallback team or trigger a callback.
 
 ## Task 4 - Configure the assignment method
 
@@ -104,11 +111,14 @@ The assignment method controls how conversations in the queue are distributed to
 
 1. On the **Contoso Support Queue** page, scroll to the **Assignment method** section.
 
+1. Select **See more**.
+
 1. Select **Advanced round robin**.
 
-1. Select **Save**.
+1. Select **Save & close**.
 
-    > **Note**: **Advanced round robin** distributes work items evenly across available agents in sequence, while still respecting agent capacity and skills. In a production deployment, you can also create a custom assignment method with prioritization rules to route conversations based on attributes such as escalation count or language.
+   > [!NOTE]
+   > **Advanced round robin** distributes work items evenly across available agents in sequence, while still respecting agent capacity and skills. In a production deployment, you can also create a custom assignment method with prioritization rules to route conversations based on attributes such as escalation count or language.
 
 <!-- 
 ## FUTURE TASK: Create a custom prioritization ruleset (UI broken in trials as of May 2026 — restore when fixed)
@@ -125,7 +135,7 @@ Prioritization rulesets control the order in which work items in a queue are ass
 
 1. Select **Create**.
 
-1. In the **Prioritization Ruleset** area, select **+ Create ruleset**.
+1. In the **Prioritization ruleset** area, select **+ Create ruleset**.
 
 1. Enter:
    - **Name**: `Contoso Prioritization Ruleset`
@@ -155,14 +165,14 @@ Now that the queue and workstream are configured, connect them so that conversat
 
 1. Select **Contoso Chat Workstream**.
 
-1. Scroll to the **Routing rules** section. Next to **Route to queues**, select **Create ruleset**.
+1. Scroll to the **Routing rules** section. Next to **Route to queues**, select **+Create ruleset**.
 
 1. On the **Create ruleset** dialog, enter:
    - **Name:** `Default routing`
    - **Description:** `Default rule to route all chats to Contoso Support Queue`
-   - Select **Create.**
+   - Select **Create**
 
-1. On the **Decision list** page, select **Create rule**.
+1. On the **Decision list** page, select **+Create rule**.
 
 1. In the **Create route to queue rule** dialog, enter:
    - **Rule Name**: `Route to Contoso Support Queue`
@@ -173,13 +183,17 @@ Now that the queue and workstream are configured, connect them so that conversat
 
 1. Select **Create**.
 
+1. Select the rule **Route to Contoso Support Queue**.
+
 1. Select **Save and close**.
 
-    > **Note**: Because no conditions are defined, all incoming conversations on this workstream are routed to the Contoso Support Queue. In a production deployment, you would define conditions — for example, routing by language or customer type — to direct conversations to different queues.
+   > [!NOTE]
+   > Because no conditions are defined, all incoming conversations on this workstream are routed to the Contoso Support Queue. In a production deployment, you would define conditions — for example, routing by language or customer type — to direct conversations to different queues.
 
 ## Verification
 
 This exercise is complete when:
+
 - **Contoso Chat Workstream** exists as a push-mode messaging workstream with live chat enabled
 - **Contoso Support Queue** exists as an advanced messaging queue with operating hours and overflow handling configured
 - The **Contoso Support Queue** assignment method is set to **Advanced round robin**
