@@ -151,5 +151,5 @@ This exercise is complete when:
 
 - **Contoso Chat Script** exists with 4 steps including one macro step
 - **Create Case from Conversation** macro exists and creates a case linked to the current conversation
-- **Contoso Chat Script** is assigned to the **Contoso Support Agent** experience profile
+- **Contoso Chat Script** is assigned to the **Contoso Chat Session** session template
 - Rules-based suggested contacts are enabled for the **Case** record type with at least one custom rule
