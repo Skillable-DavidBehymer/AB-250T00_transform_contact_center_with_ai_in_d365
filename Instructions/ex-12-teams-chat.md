@@ -9,6 +9,7 @@ lab:
 
 # Exercise 12 - Enable Teams chat collaboration
 
+> [!IMPORTANT]
 > **Environment requirement**: This exercise requires a **Microsoft Teams license** and **tenant administrator** permission to grant consent for Enhanced Integration and Confidential Labels. If your trial does not include Teams or you do not have tenant admin access, read through the tasks and proceed to Exercise 14.
 
 Contoso Coffee's customer support representatives often need to consult colleagues from other departments — product engineers, billing specialists, or regional managers — without leaving the conversation they are working on. Embedded Teams chat allows representatives to start a Teams conversation directly from a Dynamics 365 conversation record, and keeps the chat linked to the record so future representatives can see the full consultation history. In this exercise, you will enable Teams chat integration, configure it for conversation records, and test the end-to-end experience.
@@ -18,8 +19,9 @@ This exercise should take approximately **15** minutes to complete.
 ## Before you start
 
 Verify the following:
-- Your account has **Teams Administrator** or **Global Administrator** role in Microsoft Entra ID (required for Enhanced Integration consent)
-- A Teams license is assigned to your account in Microsoft 365 Admin Center
+
+- Your account has the **Teams Administrator** or **Global Administrator** role in Microsoft Entra ID (required for Enhanced Integration consent)
+- A Teams license is assigned to your account in the Microsoft 365 admin center
 
 ## Task 1 - Enable Microsoft Teams chat inside Dynamics 365
 
@@ -43,7 +45,8 @@ Enhanced Integration enables deeper linking between Teams channels and Dynamics 
 
 1. When prompted, select **Sign in** and complete the admin consent flow.
 
-    > **Note**: Enhanced Integration requires tenant admin consent because it grants permissions across your Microsoft 365 tenant. 
+   > [!NOTE]
+   > Enhanced Integration requires tenant admin consent because it grants permissions across your Microsoft 365 tenant.
 
 1. Select **Save**.
 
@@ -61,9 +64,9 @@ Confidential labels allow agents to apply Microsoft Purview sensitivity labels t
 
 Connecting chats to conversation records ensures that any Teams conversations started from an active conversation are stored and visible within that record.
 
-1. On the **Microsoft Teams collaboration and chat** page, scroll to the **Connect chat to Dynamics 365 records** section.
+1. On the **Microsoft Teams collaboration and chat** page, scroll to the **Connect Teams chats to Dynamics 365 records** section.
 
-1. Select **+Add record types.**
+1. Select **+ Add record types.**
 
 1. Select **Conversation** from the lookup.
 
@@ -71,21 +74,37 @@ Connecting chats to conversation records ensures that any Teams conversations st
 
 1. Select **Save**.
 
-## Task 5 - Test Teams chat from a conversation record
+## Task 5 - Enable Teams chats for the experience profile
+
+1. On the navigation pane under **Support experience**, select **Workspaces**.
+
+1. Select **Manage** next to **Experience profiles**.
+
+1. Select the **Contoso Support Representative** experience profile.
+
+1. In the **Productivity pane** section, select **Edit**.
+
+1. Set the Teams chat toggle to **On**.
+
+1. Select **Save and Close**.
+
+## Task 6 - Test Teams chat from a conversation record
 
 1. Open **Copilot Service workspace** from the application selector.
 
 1. In the left navigation, select **Conversations** and open any existing conversation record. (You may need to change the view to **All conversations** using the view selector if you have no active conversations open. If no conversations exist, use the chat widget from a previous exercise to generate one.)
 
-1. On the conversation record, look for the **Teams chat** icon in the toolbar or a **Chat** option in the productivity pane.
+1. On the conversation record, in the productivity pane on the right side of the workspace, select the **Teams chats** icon.
 
-<!-- DERIK: I can't find Teams chat anywhere on the conversation record after completing Tasks 1-4. Not visible in the toolbar, command bar, or productivity pane. Is Teams chat accessible from a Conversation record in a Contact Center-only trial, or does it only appear on Case records in a hybrid deployment? -->
+1. Select **New connected chat**.
 
-1. Select **New linked chat**.
+1. Add a participant (you can add any available user).
 
-1. Add a participant (you can add your own account or another available user).
+1. Enter a name for the chat: `Consult on customer issue`.
 
-1. Enter a message: `Consulting on LCD screen issue — customer reports blank screen after power cycle.`
+1. Select **Start chat**.
+
+1. On the new chat that opens, enter a message: `Consulting on LCD screen issue — customer reports blank screen after power cycle.`
 
 1. Send the message.
 
@@ -94,6 +113,7 @@ Connecting chats to conversation records ensures that any Teams conversations st
 ## Verification
 
 This exercise is complete when:
+
 - Teams chat is enabled inside Dynamics 365 for all apps
 - Enhanced Teams Integration is enabled with admin consent granted
 - Conversation records are configured to link Teams chats
