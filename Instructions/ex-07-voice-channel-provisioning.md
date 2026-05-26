@@ -23,20 +23,26 @@ You must have completed **Exercise 01** (trial environment provisioned). The voi
 
 1. Next to **Phone numbers**, select **Manage**.
 
-1. Select **+New number.**
+1. Select **+New number**.
 
-1. On the **Features** page, configure:
+1. On the **Features** page, configure the following:
    - **Country/Region**: `United States`
    - **Number type**: `Toll-free`
-   - **Calling plans**: Select both **Receive calls** and **Make calls**
-   - **SMS plans**: **Send and receive SMS**
+   - **Calling plans**: **Receive calls** (leave **Make calls** unchecked — see note)
+   - **SMS plans**: None
    - **Location**: Select any area code
+
+   > [!NOTE]
+   > **Make calls** is disabled for US Toll-free numbers because outbound calling on toll-free numbers requires carrier **toll-free verification** (US A2P regulation) before it can be enabled. This lab uses the number for **inbound** calls only.
+   >
+   > **SMS plans** options are also disabled until toll-free verification is completed. Leave **SMS plans** set to **None**.
 
 1. Select **Find numbers** to search for available numbers.
 
 1. Review the **Summary** showing your assigned number, then select **Purchase phone number**. Your trial should automatically gain the phone number.
 
-    > **Note**: The number must be purchased within 15 minutes of being assigned. After purchase, it appears in the phone numbers list with a status of **Ready for setup**.
+   > [!NOTE]
+   > The number must be purchased within 15 minutes of being assigned. After purchase, it appears in the phone numbers list with a status of **Ready for setup**.
 
 1. Select **Done** to return to the **Phone numbers** page.
 
@@ -60,20 +66,20 @@ You must have completed **Exercise 01** (trial environment provisioned). The voi
 
 1. In the left navigation under **Customer support**, select **Workstreams**, then select **Contoso Voice Workstream**.
 
-1. Select **Set up voice channel**.
+1. Select **Set up voice**.
 
-1. On the **Channel details** step, enter:
+1. On the **Channel Details** step, enter the following and select **Next**:
    - **Name**: `Contoso Voice Channel`
-   - Select **Next**.
 
 1. On the **Phone number** step, select the phone number you acquired in Task 1, then select **Next**.
 
-1. On the **Language** step:
-   - **Primary language**: `English - United States`
-   - Select **Next**.
+1. On the **Language** step, configure the following:
+   - Select **+ Add Primary language**, then select `English - United States` for **Language**.
 
-    > [!TIP]
-    > If time permits, explore the options on this step before moving on. Try changing the **Hold music** and **Wait music** to a different audio file. In the **Voice profile** section, experiment with the **Voice**, **Speaking speed**, and **Pitch** settings. Use the test phrase field to preview your changes with the text: `Thank you for calling Contoso Coffee support. I'm an AI agent. How can I help you today?`
+1. Select **Save and close** and then select **Next**.
+
+   > [!TIP]
+   > If time permits, explore the options on this step before moving on. Try changing the **Hold music** and **Wait music** to a different audio file. In the **Voice profile** section, experiment with the **Voice**, **Speaking speed**, and **Pitch** settings. Use the test phrase field to preview your changes with the text: `Thank you for calling Contoso Coffee support. I'm an AI agent. How can I help you today?`
 
 1. On the **User features** step, configure the following:
 
@@ -84,30 +90,31 @@ You must have completed **Exercise 01** (trial environment provisioned). The voi
    - Leave defaults (no operating hours restriction).
 
    **Transcription and recording**
-   - **Allow automatic pause and resume when agents hold and un-hold the customer**: **Yes**
-   - **Show transcription by default**: **Yes**
-   - **Request for user consent**: **Yes**
+   - **Allow automatic pause and resume when agents hold and un-hold the customer**: Yes
+   - **Show transcription by default**: Yes
+   - **Request for user consent**: Yes
 
    **Consult**
-   - **External phone numbers**: **On**
-   - **External Teams users**: **On**
+   - **External phone numbers**: On
+   - **External Microsoft Teams users**: On
 
    **Transfer**
-   - **External phone numbers**: **On**
-   - **External Teams users**: **On**
+   - **External phone numbers**: On
+   - **External Microsoft Teams users**: On
 
    **Post-call survey**
    - Leave defaults.
 
 1. Select **Next**.
 
-1. Select **Create channel.** When the channel is done provisioning, select **Done.**
+1. Select **Create channel**. When the channel is done provisioning, select **Done**.
 
     The phone number status changes to **Connected** on the **Phone numbers** page.
 
 ## Verification
 
 This exercise is complete when:
+
 - A phone number appears in **Channels > Phone numbers** with status **Connected**
 - **Contoso Voice Workstream** exists and has the phone number assigned
 - The voice channel is configured with English (US), transfer, consult, and recording enabled
