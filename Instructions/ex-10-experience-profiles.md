@@ -27,13 +27,13 @@ Each user can only belong to one experience profile at a time. Before you can as
 
 1. Select **Search by user**.
 
-1. Search for your administrator user account.
+1. Search for and select your administrator user account.
 
 1. Select the **Assigned Experience Profile** link to open that experience profile page. (It will most likely be called **Customer Service Trial profile**.)
 
-1. Scroll to the **Users** section. Find your admin account in the list, select the checkbox next to it, and select **Remove users**.
+1. Scroll to the **Users** section. Find your admin account in the list, select **Edit**, select the checkbox next to it, and select **Remove users**.
 
-1. Select **Save**.
+1. Close the **Edit Users** page and confirm your user account is no longer listed in the **Users** section.
 
 ## Task 2 - Create an experience profile
 
@@ -43,7 +43,7 @@ Each user can only belong to one experience profile at a time. Before you can as
 
 1. Select **+ New** to create a new experience profile.
 
-1. In the **Create a new experience profile** dialog, enter:
+1. In the **Create a new experience profile** dialog, enter the following:
    - **Name**: `Contoso Support Representative`
    - **Unique name**: `msdyn_contoso_support`
    - **Description**: `Experience profile for Contoso Coffee customer support representatives`
@@ -54,13 +54,13 @@ Each user can only belong to one experience profile at a time. Before you can as
 
 1. Search for and select your administrator account.
 
-1. Select **Add.**
+1. Select **Add**.
 
 ## Task 3 - Enable productivity tools in the experience profile
 
 1. On the **Contoso Support Representative** experience profile page, scroll to the **Productivity pane** section.
 
-1. Select **Turn on.**
+1. Select **Turn on**.
 
 1. Enable the following tools:
    - **Productivity pane:** On
@@ -70,7 +70,8 @@ Each user can only belong to one experience profile at a time. Before you can as
 
 1. Select **Save and close**.
 
-    > **Note**: These tool toggles control what appears in the right-side productivity pane when an agent is handling a conversation. You will configure the actual scripts and knowledge settings in later exercises.
+   > [!NOTE]
+   > These tool toggles control what appears in the right-side productivity pane when an agent is handling a conversation. You will configure the actual scripts and knowledge settings in later exercises.
 
 ## Task 4 - Create an application tab template
 
@@ -80,7 +81,7 @@ Application tab templates define the pages that open automatically in the worksp
 
 1. Select **+ New** to create a new template.
 
-1. Enter:
+1. Enter the following on the **General** tab:
    - **Name**: `Contoso Account Record`
    - **Unique name**: `msdyn_contoso_account_record`
    - **Title**: `Account`
@@ -88,15 +89,19 @@ Application tab templates define the pages that open automatically in the worksp
    - **Description**: `Opens the customer account record for the active conversation`
    - **Can Close**: `Yes`
 
-1. Select **Save**. The **Parameters** section appears below the form.
+1. Select **Save**. The **Parameters** section appears to the right of the form.
 
-1. In the **Parameters** section, set the following values by selecting the fields from the subgrid, selecting **Edit**, and then filling in the **Value**. 
+1. In the **Parameters** section, set the following values by selecting the fields from the subgrid, selecting **Edit**, and then filling in the **Value** field:
    - **entityName**: `account`
    - **entityId**: `{anchor._customerid_value}`
 
-1. After the Value is filled in on each record, select **Save and close.**
+   > [!NOTE]
+   > If the **Discard suggestions** dialog appears, select **Continue anyway** to discard the suggested changes.
 
-    > **Note**: The `entityName` parameter tells the tab which entity type to open (Account). The `entityId` parameter uses a slug that resolves to the customer account ID from the active conversation at runtime.
+1. After the value is filled in on each record, select **Save and close**.
+
+   > [!NOTE]
+   > The `entityName` parameter tells the tab which entity type to open (Account). The `entityId` parameter uses a slug that resolves to the customer account ID from the active conversation at runtime.
 
 1. Select **Save and Close**.
 
@@ -106,7 +111,7 @@ Session templates define the overall layout and behavior of a conversation sessi
 
 1. On the **Workspaces** page, select **Manage** next to **Session templates**.
 
-1. Select **+ New** on the **Active Session Templates** page.
+1. Select **+ New** on the **Active Session Templates** view.
 
 1. Enter the following on the **General** tab:
    - **Name**: `Contoso Chat Session`
@@ -117,7 +122,8 @@ Session templates define the overall layout and behavior of a conversation sessi
    - **Description**: `Session template for Contoso Coffee chat conversations`
    - **Anchor tab**: `Customer Summary`
 
-    > **Note**: **Generic** type templates are channel-agnostic and appear in the session template picker for messaging workstreams like chat. **Entity** type templates are for entity routing (such as Case routing) and won't appear in a chat workstream's dropdown.
+   > [!NOTE]
+   > **Generic** type templates are channel-agnostic and appear in the session template picker for messaging workstreams like chat. **Entity** type templates are for entity routing (such as Case routing) and won't appear in a chat workstream's dropdown.
 
 1. Select **Save**.
 
@@ -127,7 +133,8 @@ Session templates define the overall layout and behavior of a conversation sessi
 
 1. Select the **Scripts** tab and set **Enable build expression** to **Yes**.
 
-    > **Note**: Enabling build expressions allows agent scripts to use dynamic values from the conversation context — such as customer name or case number — rather than displaying static text. This makes scripts more relevant and reduces manual copy-paste for agents.
+   > [!NOTE]
+   > Enabling build expressions allows agent scripts to use dynamic values from the conversation context — such as customer name or case number — rather than displaying static text. This makes scripts more relevant and reduces manual copy-paste for agents.
 
 1. Select **Save and Close**.
 
@@ -139,7 +146,7 @@ Session templates define the overall layout and behavior of a conversation sessi
 
 1. Navigate to **Show advanced settings**.
 
-1. Select **Edit** in the **Sessions** area.
+1. Select **Edit** in the **Sessions** section.
 
 1. In the **Default template** field, select **Contoso Chat Session**.
 
@@ -161,7 +168,8 @@ The inbox provides agents with a unified view of all assigned and open conversat
 
 1. Select **Save and close**.
 
-    > **Note**: Enabling **All active channels** makes chat and other messaging channel types available throughout the experience profile — including as record type options in inbox views. Without this setting, the **Chat** record type won't appear when you configure the inbox.
+   > [!NOTE]
+   > Enabling **All active channels** makes chat and other messaging channel types available throughout the experience profile — including as record type options in inbox views. Without this setting, the **Chat** record type won't appear when you configure the inbox.
 
 1. Scroll to the **Inbox** section and select **Edit**.
 
@@ -169,16 +177,18 @@ The inbox provides agents with a unified view of all assigned and open conversat
 
 1. Select **+ Add** to create a new inbox view.
 
-1. Enter:
+1. Enter the following for the new inbox view:
    - **Name**: `Open Chats`
    - **Representative visibility**: `Show`
    - **Record type**: `Conversation`
    - **Settings type**: `Simple`
-   - **Conversation status**: `Assigned`
+   - **Settings**: `Assigned`
+
+1. Set **Custom sort for view (optional)** to **On**.
 
 1. In the **Custom sort for view (optional)** section, set:
    - **Record type**: Conversation
-   - **Sort by**: Last Sent/Received
+   - **Field**: Last Sent/Received
    - **Sort order**: Newer to Older
 
 1. Select **Save and close** to save your new Inbox view.
@@ -188,6 +198,7 @@ The inbox provides agents with a unified view of all assigned and open conversat
 ## Verification
 
 This exercise is complete when:
+
 - **Contoso Support Representative** experience profile exists with your admin account assigned
 - Knowledge search, agent scripts, and Copilot help pane are enabled in the productivity pane
 - **Contoso Account Record** application tab template exists
