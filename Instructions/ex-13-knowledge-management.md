@@ -25,12 +25,12 @@ By default, knowledge management is enabled for Case and Conversation records. C
 
 1. In the **Record types** section, select **Manage**.
 
-1. On the **Record Types** page, select **Add**.
+1. On the **Record Types** page, select **+ Add**.
 
-1. In the **Add record type** dialog:
+1. In the **Add record type** dialog configure the following settings:
    - **Select record type**: `Account`
    - Set the toggle for **Turn on automatic search** to **On**
-   - **Provide search results using field**: `Account Name`
+   - **Provide search results using**: `Account Name`
 
 1. Select **Save and Close**.
 
@@ -54,27 +54,27 @@ Categories organize knowledge articles so agents can filter search results by pr
 
 1. In the **Categories** section, select **Manage**.
 
-1. Select **+ New Category**.
+1. Select **+ New**.
 
-1. Enter:
-   - **Name**: `Contoso Products`
+1. Enter the following details:
+   - **Title**: `Contoso Products`
    - **Description**: `Top-level category for all Contoso Coffee product knowledge`
 
-1. Select **Save and Close**.
+1. Select **Save & Close**.
 
-1. Select **+ New Category** again to create a subcategory:
-   - **Name**: `Coffee Machines`
+1. Select **+ New** again to create a subcategory with the following details:
+   - **Title**: `Coffee Machines`
    - **Description**: `Troubleshooting and maintenance for Contoso Coffee machines`
    - **Parent category**: `Contoso Products`
 
-1. Select **Save and Close**.
+1. Select **Save & Close**.
 
-1. Create one more subcategory:
-   - **Name**: `Warranty and Service`
+1. Create one more subcategory with the following details:
+   - **Title**: `Warranty and Service`
    - **Description**: `Warranty coverage, claims, and service procedures`
    - **Parent category**: `Contoso Products`
 
-1. Select **Save and Close**.
+1. Select **Save & Close**.
 
 ## Task 4 - Create a knowledge article template
 
@@ -86,13 +86,13 @@ Knowledge article templates let you standardize the structure of articles so age
 
 1. Select **+ New**.
 
-1. In the **Choose language** dialog, select `English - United States` and select **OK.**
+1. In the **Choose language** dialog, select `English - United States` and select **OK**.
 
 1. In the **Name** field, enter `Contoso Troubleshooting Template`
 
 1. In the template body, add the following sections using the formatting toolbar:
 
-   ```
+   ``` plaintext
    Symptoms
    Describe the issue the customer is experiencing.
 
@@ -107,7 +107,7 @@ Knowledge article templates let you standardize the structure of articles so age
    - Select each heading (**Symptoms**, **Steps to resolve**, **Escalation**) and apply **Bold**.
    - Select each description line beneath the headings and apply *Italic*.
 
-1. Select **Save and Close**.
+1. Select **Save & Close**.
 
 ## Task 5 - Author a knowledge article
 
@@ -119,7 +119,7 @@ Now that the template exists, you will use it to create the LCD screen troublesh
 
 1. Select **+ New from template**.
 
-1. In the **Select template** dialog, select **Contoso Troubleshooting Template** and then select **OK**.
+1. In the **Select Knowledge Article template** dialog, select **Contoso Troubleshooting Template** and then select **OK**.
 
 1. On the **Content** tab, enter:
    - **Title**: `LCD Screen Troubleshooting — Contoso Coffee Machines`
@@ -129,12 +129,14 @@ Now that the template exists, you will use it to create the LCD screen troublesh
 1. In the article body, replace the placeholder text with the following content. Replace each italic placeholder line with the corresponding text below:
 
    Under **Symptoms**, replace the placeholder with:
-   ```
+
+   ``` plaintext
    The LCD screen on the Contoso coffee machine is blank or unresponsive.
    ```
 
    Under **Steps to resolve**, replace the placeholder with:
-   ```
+
+   ``` plaintext
    1. Check that the machine is plugged in and the power outlet is working.
    2. Press and hold the power button for 10 seconds to perform a hard reset.
    3. Unplug the machine, wait 30 seconds, then plug it back in and power on.
@@ -142,7 +144,8 @@ Now that the template exists, you will use it to create the LCD screen troublesh
    ```
 
    Under **Escalation**, replace the placeholder with:
-   ```
+
+   ``` plaintext
    If the issue persists after all steps above, create a service request and assign it to the Hardware team.
    ```
 
@@ -152,33 +155,36 @@ Now that the template exists, you will use it to create the LCD screen troublesh
 
 1. Select **Save.**
 
-    > **Note**: When you save the article, several fields on the **Summary** tab are automatically populated by the system, including **Article Public Number** (a unique reference ID), **Version number**, **Created on**, and **Language**. You don't need to fill these in manually.
+   > [!NOTE]
+   > When you save the article, several fields on the **Summary** tab are automatically populated by the system, including **Article Public Number** (a unique reference ID), **Version number**, **Created on**, and **Language**. You don't need to fill these in manually.
 
 1. In the **Related information** section, you will find 5 icons: **Related versions**, **Related translations**, **Related categories**, **Related articles**, and **Related products**. Select **Related categories.**
 
-1. From the ellipses, select **Relate category.**
+1. From the ellipses, select **Relate category**.
 
 1. In the **Select Category to Associate with** lookup, select `Coffee Machines`.
 
 1. Select **Associate**.
 
-1. **Save** the article.
+1. Select **Save** to save the article.
 
 1. Select **Approve And Publish** to publish the article and make it available to agents. (You may need to expand the ellipses in the top menu to see all of the options.)
 
-1. Select **OK** in the approve dialog.
+1. Select **OK** in the **Confirm approval of articles(s)** dialog.
 
-1. In the Publish dialog, set the Expiration date to a year from today.
+1. In the **Publish** pane, set the Expiration date to a year from today.
 
 1. Set **Publish approved related translations with Article** to **Yes.**
 
 1. Select **Publish.**
 
-    > **Note**: Published articles are indexed for knowledge search and will appear in the agent's productivity pane knowledge search results.
+   > [!NOTE]
+   > Published articles are indexed for knowledge search and will appear in the agent's productivity pane knowledge search results.
 
 ## Verification
 
 This exercise is complete when:
+
 - Knowledge management is enabled for **Account** records with automatic search
 - Three categories exist: **Contoso Products**, **Coffee Machines**, and **Warranty and Service**
 - The **Contoso Troubleshooting Template** exists and contains Symptoms, Steps to resolve, and Escalation sections
