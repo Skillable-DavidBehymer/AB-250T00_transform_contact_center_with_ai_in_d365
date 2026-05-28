@@ -7,7 +7,7 @@ lab:
     islab: true
 ---
 
-# Exercise 14 - Configure the Copilot features
+# Exercise 14 - Configure Copilot features
 
 > [!NOTE]
 > **Trial availability note**: The Copilot features covered in this exercise are generally available in Dynamics 365 Contact Center trials. The **Quality Assurance Agent** and **Service Operations Agent** bonus tasks at the end of this exercise may require additional capacity credits or specific trial configurations — complete them if available in your environment, and skip if not.
