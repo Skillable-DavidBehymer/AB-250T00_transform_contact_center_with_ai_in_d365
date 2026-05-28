@@ -7,10 +7,10 @@ lab:
     islab: true
 ---
 
-# Exercise 14 - Configure the Customer Assist Agent and Copilot features
+# Exercise 14 - Configure the Copilot features
 
 > [!NOTE]
-> **Trial availability note**: The Customer Assist Agent and Copilot features covered in this exercise are generally available in Dynamics 365 Contact Center trials. The **Quality Assurance Agent** and **Service Operations Agent** bonus tasks at the end of this exercise may require additional capacity credits or specific trial configurations — complete them if available in your environment, and skip if not.
+> **Trial availability note**: The Copilot features covered in this exercise are generally available in Dynamics 365 Contact Center trials. The **Quality Assurance Agent** and **Service Operations Agent** bonus tasks at the end of this exercise may require additional capacity credits or specific trial configurations — complete them if available in your environment, and skip if not.
 
 Contoso Coffee's agents handle complex troubleshooting questions across dozens of coffee machine models. Without AI assistance, they spend significant time searching for the right answer. In this exercise, you will configure Copilot to surface relevant knowledge articles automatically during conversations, set up the Customer Assist Agent for real-time representative guidance, add a prompt plugin that surfaces warranty information, and use the Copilot analytics report to understand adoption.
 
@@ -89,12 +89,13 @@ Copilot features are enabled per experience profile, so agents only see the capa
    > [!NOTE]
    > Features not enabled here will not appear in the agent's workspace, even if they are configured globally. Enabling only the features your agents need keeps the workspace focused and reduces distraction.
 
-## Task 4 - Configure the Customer Assist Agent for representative assistance
+## Bonus Exercises - Configure Contact Center AI agents
 
-> [!NOTE]
-> The Customer Assist Agent may not be available in all trial environments. If you don't see it in your left navigation, skip this task and continue with Task 5.
+AI agents may or may not be available in your environment. If they are available, spend some time getting them set up in the following Bonus Tasks. If they are not available, you can move on - there are no dependencies on these exercises in any other lab.
 
-The Customer Assist Agent provides real-time suggestions and guidance to agents during live conversations.
+## Task A - Configure the Customer Assist Agent for representative assistance
+
+The Customer Assist Agent provides real-time suggestions and guidance to agents during live conversations. Verify it is available in your trial before proceeding.
 
 1. In **Copilot Service admin center**, in the left navigation under **Customer support**, select **AI Agents**.
 
@@ -110,66 +111,9 @@ The Customer Assist Agent provides real-time suggestions and guidance to agents 
 
 1. Select **Save**.
 
-## Task 5 - Add a prompt plugin
+### Bonus Task B - Configure the Quality Assurance Agent
 
-<!-- DERIK: Consider whether this task belongs here. Prompt plugins are still in preview, require Copilot Studio capacity credits that trials may not have, and send learners to a second portal (make.powerapps.com) mid-exercise. For a 300-level contact center config course it's tangential — learners get more value from Tasks 1-4. Options: (1) cut entirely, (2) move to a bonus task, or (3) keep but add a skip note like Task 4. -->
-
-Prompt plugins extend Copilot by letting agents trigger a predefined prompt that retrieves specific information. Creating a prompt plugin is a two-step process: first create the prompt in the Power Apps maker portal using AI Builder, then enable it in Copilot Service admin center.
-
-### Step A - Create the prompt in AI Builder
-
-1. Open a new browser tab and go to [**https://make.powerapps.com**](https://make.powerapps.com).
-
-1. If the **Welcome to Power Apps** dialog appears, select **Get started**.
-
-1. Confirm the **Contact Center Trial** environment is selected in the top-right corner.
-
-1. In the left navigation, select **AI hub**, then under **Discover an AI capability**, select **Prompts**.
-
-   > [!NOTE]
-   > If you don't see **AI hub** in the left navigation, select **More** at the bottom of the nav to find it.
-
-1. Select **Build your own prompt.**
-
-1. In the top text box (it should say **Custom prompt** with the date and time), replace the text with your prompt's title: `Contoso Warranty Information`
-
-1. Enter the following in the Instructions text box:
-
-   ``` plaintext
-   Summarize Contoso Coffee's standard 2-year warranty coverage for coffee machines. Include what is covered, what is excluded, and how to initiate a warranty claim.
-   ```
-
-1. Select **Save**.
-
-### Step B - Enable the plugin in admin center
-
-1. Return to **Copilot Service admin center**.
-
-1. In the left navigation under **Support experience**, select **Productivity**.
-
-1. Next to **Plugins for generative AI (Preview)**, select **Manage**.
-
-1. In the plugin list, find **Contoso Warranty Information** and select it.
-
-1. On the command bar, select **Turn on**.
-
-1. On the **Select access type** screen, select **All agents who have Copilot**, then select **Next**.
-
-1. On the **Define inputs (optional)** screen, leave all fields empty and select **Next**. You'll also see a **Responses** section with a "Don't summarize plugin responses" option — leave this unchecked so Copilot summarizes the response for agents.
-
-1. On the **Plugin data** screen, select **Save this plugin's data in Dynamics 365 Copilot Transcript**, then select **Turn on plugin**.
-
-1. When prompted, select **Publish changes**, then select **Confirm**.
-
-   > [!NOTE]
-   > It can take up to 15 minutes for the plugin to become available to agents. Agents access it from the Copilot pane by typing `/` to browse available plugins.
-
-## Bonus tasks (complete if available in your trial)
-
-### Bonus Task A - Configure the Quality Assurance Agent
-
-> [!NOTE]
-> The QA Agent evaluates conversations for quality scoring. Verify it is available in your trial before proceeding.
+The QA Agent evaluates conversations for quality scoring. Verify it is available in your trial before proceeding.
 
 1. In **Copilot Service admin center**, select **Contact Center Agents**, then select **Quality Assurance Agent**.
 
@@ -187,8 +131,7 @@ Prompt plugins extend Copilot by letting agents trigger a predefined prompt that
 
 ### Bonus Task B - Configure the Service Operations Agent
 
-> [!NOTE]
-> The Service Operations Agent provides conversational configuration assistance and orchestrates playbooks.
+The Service Operations Agent provides conversational configuration assistance and orchestrates playbooks. Verify it is available in your trial before proceeding.
 
 1. In **Copilot Service admin center**, select **Service Operations Agent**.
 
@@ -207,5 +150,4 @@ This exercise is complete when:
 - Copilot is enabled with cross-region data movement confirmed
 - The Dynamics 365 knowledge base is enabled as a Copilot knowledge source in the Customer Support agent settings
 - Copilot help pane, conversation summary, and draft email are enabled on the **Contoso Support Representative** experience profile
-- The Customer Assist Agent is configured with real-time representative assistance on (if available in your environment)
-- **Contoso Warranty Information** prompt plugin exists
+- The Contact Center agents are configured (if available in your environment)
