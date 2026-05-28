@@ -1,7 +1,7 @@
 ﻿---
 lab:
-    title: 'Exercise 14 - Configure the Customer Assist Agent and Copilot features'
-    description: 'Verify Copilot prerequisites, connect knowledge sources, configure Customer Assist Agent for representative assistance, add a prompt plugin, and review Copilot analytics.'
+    title: 'Exercise 14 - Configure Copilot features'
+    description: 'Verify Copilot prerequisites and connect knowledge sources.'
     duration: '35 minutes'
     level: 300
     islab: true
